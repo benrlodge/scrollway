@@ -49,9 +49,22 @@ Scrollway.prototype = {
 };
 
 
-new Scrollway(function(scrolling){
-	console.log('we are going:' + scrolling.direction);
-	console.log('we are at:' + scrolling.position);
+new Scrollway(function(scroll){
+
+	var stuff = false
+
+	if (scroll.direction == 'down'){
+		if(scroll.position > 40 && !stuff){
+			$('.stuff').hide();
+			stuff = true;
+		}	
+	}
+
+	else{
+		$('.stuff').show();
+	}
+
+
 });
 
 

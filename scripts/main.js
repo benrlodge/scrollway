@@ -49,19 +49,25 @@ Scrollway.prototype = {
 };
 
 
-new Scrollway(function(scroll){
+var stuff = false;
 
-	var stuff = false
+new Scrollway(function(scroll){
 
 	if (scroll.direction == 'down'){
 		if(scroll.position > 40 && !stuff){
+			console.log('hide!');
 			$('.stuff').hide();
 			stuff = true;
+			console.log('SUFFFFF: ' + stuff);
 		}	
 	}
 
-	else{
-		$('.stuff').show();
+	if (scroll.direction == 'up'){
+		if(stuff){
+			$('.stuff').show();
+			stuff = false;
+			console.log('show!');
+		}
 	}
 
 
